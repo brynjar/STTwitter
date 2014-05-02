@@ -30,11 +30,15 @@ static STTwitterAPIWrapper *wrapper = nil;
 
 +(void)reset {
     
-    [[NSNotificationCenter defaultCenter] removeObserver:wrapper->notificationObject];
-    wrapper->notificationObject = nil;
-    
-    [wrapper release];
-    wrapper = nil;
+    if (wrapper)
+    {
+        [[NSNotificationCenter defaultCenter] removeObserver:wrapper->notificationObject];
+        wrapper->notificationObject = nil;
+        
+        [wrapper release];
+        wrapper = nil;
+    }
+
 }
 
 - (id)init {
