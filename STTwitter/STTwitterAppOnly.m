@@ -224,7 +224,7 @@
         
         NSError *regexError = nil;
         NSString *errorString = [r.responseString firstMatchWithRegex:@"<error>(.*)</error>" error:&regexError];
-        if(errorString == nil) {
+        if(errorString != nil) {
             NSLog(@"-- regexError: %@", [regexError localizedDescription]);
         }
         
@@ -234,7 +234,7 @@
             error = [NSError errorWithDomain:NSStringFromClass([self class]) code:0 userInfo:@{NSLocalizedDescriptionKey : r.responseString}];
         }
         
-        NSLog(@"-- body: %@", r.responseString);
+        //NSLog(@"-- body: %@", r.responseString);
         errorBlock(error);
     };
     
