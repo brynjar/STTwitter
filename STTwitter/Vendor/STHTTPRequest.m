@@ -11,7 +11,7 @@
 #define DEBUG 0
 
 NSUInteger const kSTHTTPRequestCancellationError = 1;
-NSUInteger const kSTHTTPRequestDefaultTimeout = 5;
+NSUInteger const kSTHTTPRequestDefaultTimeout = 10;
 
 static NSMutableDictionary *sharedCredentialsStorage = nil;
 
