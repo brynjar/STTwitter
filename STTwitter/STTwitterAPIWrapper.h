@@ -173,6 +173,8 @@
 //	GET		search/tweets
 //	Returns Tweets (*: tweets matching the query)
 - (void)getSearchTweetsWithQuery:(NSString *)q
+                    afterTweetId: (NSString *)afterTweetId
+                           count: (NSString *)count
                     successBlock:(void(^)(NSDictionary *response))successBlock
                       errorBlock:(void(^)(NSError *error))errorBlock;
 
