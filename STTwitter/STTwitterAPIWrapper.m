@@ -431,15 +431,11 @@ static STTwitterAPIWrapper *wrapper = nil;
 #pragma mark Search
 
 - (void)getSearchTweetsWithQuery:(NSString *)q
-                    afterTweetId: (NSString *)afterTweetId
-                           count: (NSString *)count
-                    successBlock:(void(^)(NSDictionary *response))successBlock
-                      errorBlock:(void(^)(NSError *error))errorBlock {
+					successBlock:(void(^)(NSDictionary *response))successBlock
+					  errorBlock:(void(^)(NSError *error))errorBlock {
     if(q) {
-        NSMutableDictionary *d = [@{@"q" : q, @"count": count} mutableCopy];
-        if (afterTweetId != nil && afterTweetId.length > 0) {
-            d[@"max_id"] = afterTweetId;
-        }
+        NSDictionary *d = @{@"q" : q, @"count": @"25"};
+        
         [_oauth getResource:@"search/tweets.json" parameters:d successBlock:^(id response) {
             successBlock(response);
         } errorBlock:^(NSError *error) {
